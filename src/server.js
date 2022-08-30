@@ -6,6 +6,10 @@ const app = express()
 
 const dataBase = require('./dataBase.')
 
+const bodyParser = require('body-parser')
+
+app.use(bodyParser.urlencoded({ extended : true })) //Transforma o corpo das requisições em objeto para ser acessados mais facilmente
+
 app.get('/produtos', (req, res, next) => {
     res.send(dataBase.getProdutos())
 })
